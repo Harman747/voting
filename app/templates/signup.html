@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% from "_render_elements.html" import render_field %}
+{% block title %}
+Sign Up
+{% endblock %}
+{% block content %}
+<h1>Sign Up</h1>
+<form method="post" action="{{ url_for('signup') }}">
+    {{ form.csrf_token }}
+    {{ render_field(form.username) }}
+    {{ render_field(form.email) }}
+    {{ render_field(form.password) }}
+    {{ form.submit }}
+    <a href="/login">Do you have an account already? Log In</a>
+</form>
+{% endblock %}

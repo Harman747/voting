@@ -1,0 +1,89 @@
+/* Google Fonts (optional) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+/* Login Box */
+.login-wrapper {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.login-box {
+    background-color: #ffffff10;
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 28px;
+}
+
+.login-box p {
+    margin-bottom: 20px;
+    color: #ccc;
+    font-size: 14px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 12px 0;
+    border: none;
+    border-radius: 10px;
+    background: #ffffff20;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+}
+
+.login-box input::placeholder {
+    color: #ddd;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background: #0077ff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-box button:hover {
+    background: #005fcc;
+}
+
+.footer-text {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #ccc;
+}
+
+.footer-text a {
+    color: #fff;
+    text-decoration: underline;
+}
