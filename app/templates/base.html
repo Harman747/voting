@@ -1,16 +1,41 @@
-{% from "_render_elements.html" import render_messages %}
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/favicon.ico') }}" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
-        <meta charset="utf-8" />
-        <title>{% block title %}{% endblock %}</title>
-    </head>
-    <body>
-        {{ render_messages(messages) }}
-        {% block content %}
-        {% endblock %}
-        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    </body>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SecureElect{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <img src="{{ url_for('static', filename='imgs/cl.png') }}" alt="Circle Logo" height="90" width="90">
+            <h1>Strengthening Democracy with Innovation</h1>
+            <nav>
+                {% if current_user.is_authenticated %}
+                    <span>Welcome, {{ current_user.username }}!</span>
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">Login</a>
+                    <a href="{{ url_for('signup') }}">Sign Up</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
 </html>

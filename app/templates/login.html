@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% from "_render_elements.html" import render_field %}
-{% block title %}
-Log In
-{% endblock %}
+{% block title %}Log In{% endblock %}
 {% block content %}
 <h1>Log In</h1>
 <form method="post" action="{{ url_for('login') }}">
@@ -11,6 +9,6 @@ Log In
     {{ render_field(form.password) }}
     <p>{{ form.remember }} {{ form.remember.label }}</p>
     {{ form.submit }}
-    <a href="/signup">Haven't an account already? Sign Up for FREE!</a>
+    <p><a href="{{ url_for('signup') }}">Haven't an account already? Sign Up for FREE!</a></p>
 </form>
 {% endblock %}

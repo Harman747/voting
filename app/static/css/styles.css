@@ -51,6 +51,8 @@ a:hover {
     padding: 50px;
     flex-wrap: wrap;
     border-radius: 5px;
+    position: relative;
+    overflow: hidden;
 }
 
 #blue_box_text {
@@ -69,26 +71,24 @@ a:hover {
     line-height: 1.6;
 }
 
-.Get-started{
+.Get-started {
     margin-top: 10px;
     text-align: center;
     width: 120px;
     height: 50px;
     border-radius: 15px;
     background-color: #004aad;
-    
     position: relative;
-
     display: flex;
-    align-items: center;   /* Vertical centering */
-    justify-content: center; /* Horizontal centering */
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
 
-.Get-started > p{
+.Get-started > p {
     color: #ffffff!important;
 }
 
@@ -176,10 +176,4 @@ a:hover {
     .header img {
         margin-bottom: 10px;
     }
-}
-
-/* Position relative to allow absolute overlay */
-.blue_box {
-    position: relative;
-    overflow: hidden;
 }

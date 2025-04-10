@@ -1,167 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css">
-    <title>SecureElect</title>
-</head>
-<body>
-    <div class="header">
-        <img src="../images/circle logo.png" height="90px" width="90px" >
-        <h1>Strengthening Democracy with Innovation</h1>
-        
+{% extends "base.html" %}
+{% block title %}Home - SecureElect{% endblock %}
+{% block content %}
+<div class="blue_box" style="width: 100%;">
+    <div id="blue_box_text">
+        <h2>FUTURE OF VOTING IS HERE</h2>
+        <span id="dynamic-text">
+            <p>Your Vote. Your Voice. Secured Forever</p>
+            <p>Secure Elections Start Here</p>
+        </span>
+        <a href="{{ url_for('login') }}">
+            <div class="Get-started">
+                <span>Get Started</span>
+            </div>
+        </a>
     </div>
-    
-    <div class = "blue_box" width = 100% >
-
-        <div id="blue_box_text">
-            <h2>FUTURE OF VOTING IS HERE</h2>
-            <span id="dynamic-text">
-                <p>Your Vote. Your Voice. Secured Forever</p>
-                <p>Secure Elections Start Here</p>
-            </span>
-            <a href="./login.html">
-                <div class="Get-started">
-                    <a href="./login.html">Get Started</a>
-                </div>
-            </a>
-        </div>
-        
-        
-        <img id="vote-img" src="../images/Screenshot 2025-01-23 205211.png">
-    </div>
-
-    <div class="middle-box">
-
-        <div class="box-container">
-
-            <div class="small-box">
-    
-                <div class="div-img">
-                    <a href="./frontend/vote.html"><img src="../images/register.png" alt="click here to register" width="100px" height="100px"></a>
-                </div>
-    
-                <div class="div-text">
-                    <a href="./frontend/vote.html">Click To Vote</a>
-                </div>
-    
+    <img id="vote-img" src="{{ url_for('static', filename='imgs/sc1.png') }}" alt="Voting Screenshot">
+</div>
+<div class="middle-box">
+    <div class="box-container">
+        <div class="small-box">
+            <div class="div-img">
+                <a href="{{ url_for('vote_page') }}">
+                    <img src="{{ url_for('static', filename='imgs/register.png') }}" alt="Click here to register" width="100" height="100">
+                </a>
             </div>
-    
-            <div class="small-box">
-    
-                <div class="div-img">
-                    <a href="./result.html"><img src="../images/result.png" alt="click here to view result" width="100px" height="100px"></a>
-                </div>
-    
-                <div class="div-text">
-                    <a href="./result.html">View Election Result</a>
-                </div>
-    
+            <div class="div-text">
+                <a href="{{ url_for('vote_page') }}">Click To Vote</a>
             </div>
-    
-            <div class="small-box">
-    
-                <div class="div-img">
-                    <a href="./where_to_vote.html"><img src="../images/where to vote.png" alt="click here to know about where to vote" width="100px" height="100px"></a>
-                </div>
-    
-                <div class="div-text">
-                    <a href="./where_to_vote.html">Where To Vote</a>
-                </div>
-    
+        </div>
+        <div class="small-box">
+            <div class="div-img">
+                <a href="{{ url_for('news_page') }}">
+                    <img src="{{ url_for('static', filename='imgs/result.png') }}" alt="View result" width="100" height="100">
+                </a>
             </div>
-    
-            <div class="small-box">
-    
-                <div class="div-img">
-                    <a href="./news.html"><img src="../images/updates.png" alt="click here to know about latest news" width="100px" height="100px"></a>
-                </div>
-    
-                <div class="div-text">
-                    <a href="./news.html">News and Campaigns</a>
-                </div>
-    
+            <div class="div-text">
+                <a href="{{ url_for('news_page') }}">View Election Result</a>
             </div>
-    
         </div>
-
-        <div class="vote-count">
-            
+        <div class="small-box">
+            <div class="div-img">
+                <a href="{{ url_for('where_to_vote_page') }}">
+                    <img src="{{ url_for('static', filename='imgs/where_to_vote.png') }}" alt="Where To Vote" width="100" height="100">
+                </a>
+            </div>
+            <div class="div-text">
+                <a href="{{ url_for('where_to_vote_page') }}">Where To Vote</a>
+            </div>
         </div>
-
-        <div class="get-involved">
-            <h2>Empower Democracy. Be a Part of the Change.</h2>
-            <p>Every vote matters. Every voice counts. Take a step towards a stronger nation.</p>
-            <a href="/" class="cta-button">Register to Vote</a>
+        <div class="small-box">
+            <div class="div-img">
+                <a href="{{ url_for('news_page') }}">
+                    <img src="{{ url_for('static', filename='imgs/updates.png') }}" alt="News and Campaigns" width="100" height="100">
+                </a>
+            </div>
+            <div class="div-text">
+                <a href="{{ url_for('news_page') }}">News and Campaigns</a>
+            </div>
         </div>
-        
-
     </div>
 
-    <div class="bottom">
-        <p>© 2025 SecureElect. Ensuring secure and transparent digital voting.</p>
+    <div class="vote-count">
+        <!-- Optional dynamic vote count -->
     </div>
 
-    
-
-    <script>
-        const phrases = [
-            "FUTURE OF VOTING IS HERE",
-            "YOUR VOTE. YOUR VOICE.",
-            "DIGITAL. SECURE. RELIABLE.",
-            "BLOCKCHAIN-POWERED DEMOCRACY"
-        ];
-    
-        let i = 0;
-        let j = 0;
-        let currentPhrase = [];
-        let isDeleting = false;
-        let isEnd = false;
-    
-        function loop() {
-            const dynamicText = document.getElementById('dynamic-text');
-            isEnd = false;
-            dynamicText.innerHTML = currentPhrase.join('');
-    
-            if (i < phrases.length) {
-                if (!isDeleting && j <= phrases[i].length) {
-                    currentPhrase.push(phrases[i][j]);
-                    j++;
-                    dynamicText.innerHTML = currentPhrase.join('');
-                }
-    
-                if (isDeleting && j <= phrases[i].length) {
-                    currentPhrase.pop();
-                    j--;
-                    dynamicText.innerHTML = currentPhrase.join('');
-                }
-    
-                if (j == phrases[i].length) {
-                    isEnd = true;
-                    isDeleting = true;
-                }
-    
-                if (isDeleting && j === 0) {
-                    currentPhrase = [];
-                    isDeleting = false;
-                    i++;
-                    if (i === phrases.length) {
-                        i = 0;
-                    }
-                }
-            }
-    
-            const speed = isEnd ? 2000 : isDeleting ? 50 : 100;
-            setTimeout(loop, speed);
-        }
-    
-        loop();
-    </script>
-    
-
-</body>
-</html>
+    <div class="get-involved">
+        <h2>Empower Democracy. Be a Part of the Change.</h2>
+        <p>Every vote matters. Every voice counts. Take a step towards a stronger nation.</p>
+        <a href="{{ url_for('signup') }}" class="cta-button">Register to Vote</a>
+    </div>
+</div>
+<div class="bottom">
+    <p>© 2025 SecureElect. Ensuring secure and transparent digital voting.</p>
+</div>
+{% endblock %}
