@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Register Party{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/register_party.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <form id="register-party-form" method="POST" action="/register_party">
+        <h1>Register a New Party</h1>
+
+        <div class="form-group">
+            <label for="name">Party Name</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="president">President</label>
+            <input type="text" id="president" name="president" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="vice_president">Vice President</label>
+            <input type="text" id="vice_president" name="vice_president" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="secretary">Secretary</label>
+            <input type="text" id="secretary" name="secretary" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Contact Email</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn-submit">Register Party</button>
+    </form>
+</div>
+{% endblock %}

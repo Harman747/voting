@@ -1,0 +1,91 @@
+/* Ensure full height layout */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #e6f0ff, #f0f6ff);
+}
+
+/* Page content wrapper (added in base.html) */
+
+/* Centered form block */
+.form-container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 120px); /* Adjust height minus header */
+    padding: 20px;
+}
+
+/* Form styles */
+.form-container > #register-party-form {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid rgba(0, 100, 255, 0.1);
+    border-radius: 16px;
+    padding: 40px 35px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    color: #003366;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Heading */
+#register-party-form h1 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #003366;
+}
+
+/* Label & input */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #003366;
+}
+
+input.form-control {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #ccdfff;
+    background-color: rgba(255, 255, 255, 0.95);
+    font-size: 16px;
+    color: #333;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+input.form-control:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 128, 255, 0.4);
+}
+
+/* Submit button */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #0077ff, #00c6ff);
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-submit:hover {
+    background: linear-gradient(to right, #0055cc, #00aaff);
+    transform: scale(1.02);
+}

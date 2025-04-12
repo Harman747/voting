@@ -1,0 +1,1 @@
+my_chain.add_to_blockchain(vote_data)

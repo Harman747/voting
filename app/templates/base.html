@@ -10,9 +10,9 @@
 <body>
     <header>
         <div class="header">
-            <img src="{{ url_for('static', filename='imgs/cl.png') }}" alt="Circle Logo" height="90" width="90">
+            <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='imgs/cl.png') }}" alt="Circle Logo" height="90" width="90"></a>
             <h1>Strengthening Democracy with Innovation</h1>
-            <nav>
+            <nav id="login-header">
                 {% if current_user.is_authenticated %}
                     <span>Welcome, {{ current_user.username }}!</span>
                     <a href="{{ url_for('logout') }}">Logout</a>
@@ -34,7 +34,9 @@
         {% endif %}
     {% endwith %}
 
-    {% block content %}{% endblock %}
+    <div class="main-content">
+        {% block content %}{% endblock %}
+    </div>
 
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>

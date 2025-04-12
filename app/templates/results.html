@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Live Results{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}">
+
+<div class="results-container">
+    <h2>Live Vote Counts</h2>
+
+    {% if results %}
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>Party</th>
+                    <th>Votes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for party, count in results.items() %}
+                    <tr>
+                        <td>{{ party }}</td>
+                        <td>{{ count }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="no-votes">No votes recorded yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,6 +1,35 @@
 {% extends "base.html" %}
 {% block title %}Vote{% endblock %}
+
 {% block content %}
-<h1>Vote Page</h1>
-<p>This is where you can cast your vote.</p>
+<div class="login-container">
+    <form id="login-form" method="post" action="{{ url_for('vote_page') }}">
+
+        <h1>Cast Your Vote</h1>
+
+        <input type="text" name="aadhar" placeholder="Enter Aadhar Number"
+        class="form-input" required pattern="\d{12}" maxlength="12"
+        inputmode="numeric" title="Aadhar must be 12 digits"
+        oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,12);"
+        value="{{ request.form.get('aadhar', '') }}">
+        <input type="text" name="voter_id" placeholder="Enter Voter ID"
+        class="form-input" required pattern="\d{10}" maxlength="10"
+        inputmode="numeric" title="Voter ID must be 10 digits"
+        oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,10);"
+        value="{{ request.form.get('voter_id', '') }}">
+        <input type="text" name="name" placeholder="Enter Full Name" class="form-input" required value="{{ request.form.get('name', '') }}">
+        <input type="text" name="phone" placeholder="Enter Phone Number" class="form-input" required value="{{ request.form.get('phone', '') }}">
+
+        <select name="party" class="form-input" required>
+            <option value="" disabled selected>Select a Party</option>
+            {% for p in parties %}
+                <option value="{{ p }}">{{ p }}</option>
+            {% endfor %}
+        </select>
+
+        <div class="form-button">
+            <button type="submit" class="btn-submit">Vote</button>
+        </div>
+    </form>
+</div>
 {% endblock %}
